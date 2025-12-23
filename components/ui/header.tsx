@@ -8,7 +8,7 @@ export default function Header() {
 	const currentPage = pathname.slice(1) || "Main Menu";
 
 	return (
-		<header className="flex w-full h-fit justify-between relative">
+		<header className="flex w-full h-fit items-center justify-between relative">
 			{/* Left Side: Logo */}
 			<Image
 				src="/Logo.png"
@@ -16,7 +16,7 @@ export default function Header() {
 				width={0}
 				height={0}
 				sizes="100vw"
-				className="h-full w-auto object-contain absolute"
+				className="h-[80%] w-auto object-contain absolute"
 			/>
 
 			{/* Right Side: Stacked Text */}

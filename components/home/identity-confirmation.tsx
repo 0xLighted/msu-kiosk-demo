@@ -6,10 +6,10 @@ export default function IdentityConfirmation() {
 				Did I identify you correctly?
 			</div>
 			<div className="flex w-full gap-2">
-				<button className="p-2 w-full border-2 border-dark rounded-sm cursor-pointer hover:border-crimson">
+				<button className="p-2 w-full bg-white shadow-sm rounded-sm cursor-pointer hover:border-crimson">
 					Yes
 				</button>
-				<button className="p-2 w-full border-2 border-dark rounded-sm cursor-pointer hover:border-crimson">
+				<button className="p-2 w-full bg-white shadow-sm rounded-sm cursor-pointer hover:border-crimson">
 					No
 				</button>
 			</div>

@@ -32,7 +32,7 @@ export function ResponsiveWrapper({ children, className }: ResponsiveWrapperProp
 
 	return (
 		<main
-			className="relative flex h-screen w-screen items-center justify-center overflow-hidden bg-dark"
+			className="relative flex h-dvh w-screen items-center justify-center overflow-hidden bg-dark"
 			onMouseMove={handleMouseMove}
 		>
 			{/* Desktop Background Animation Layer */}
