@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+python-multipart
+# Add other dependencies here (e.g. google-generativeai, face_recognition, etc.)

@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+:root {
+  --light: #fafafa;
+  --dark: #171717;
+  --crimson: #ef1c24;
+}
+
+@theme inline {
+  --color-light: var(--light);
+  --color-dark: var(--dark);
+  --color-crimson: var(--crimson);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Hide scrollbar */
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
