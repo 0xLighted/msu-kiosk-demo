@@ -1,3 +1,5 @@
+"use client"
+import Button from "@/components/ui/button";
 
 export default function IdentityConfirmation() {
 	return (
@@ -6,12 +8,12 @@ export default function IdentityConfirmation() {
 				Did I identify you correctly?
 			</div>
 			<div className="flex w-full gap-2">
-				<button className="p-2 w-full bg-white shadow-sm rounded-sm cursor-pointer hover:bg-crimson/20 transition-colors duration-200">
+				<Button>
 					Yes
-				</button>
-				<button className="p-2 w-full bg-white shadow-sm rounded-sm cursor-pointer hover:bg-crimson/20 transition-colors duration-200">
+				</Button>
+				<Button>
 					No
-				</button>
+				</Button>
 			</div>
 		</div>
 	);

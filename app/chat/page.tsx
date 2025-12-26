@@ -76,7 +76,7 @@ export default function Chat() {
 							transition={{ duration: 0.3, ease: "easeInOut" }}
 							className="overflow-hidden"
 						>
-							<div className="text-dark bg-white/50 p-2 rounded-md">
+							<div className="text-dark rounded-md">
 								<Keyboard
 									keyboardRef={(r: any) => (keyboard.current = r)}
 									onChange={onKeyboardChange}
