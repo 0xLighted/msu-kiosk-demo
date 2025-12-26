@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function Header() {
 	const pathname = usePathname();
@@ -10,14 +11,16 @@ export default function Header() {
 	return (
 		<header className="flex w-full h-fit items-center justify-between relative">
 			{/* Left Side: Logo */}
-			<Image
-				src="/Logo.png"
-				alt="MSU University Logo"
-				width={0}
-				height={0}
-				sizes="100vw"
-				className="h-[80%] w-auto object-contain absolute"
-			/>
+			<Link href="/" className="h-[80%] w-auto absolute">
+				<Image
+					src="/Logo.png"
+					alt="MSU University Logo"
+					width={0}
+					height={0}
+					sizes="100vw"
+					className="h-full w-auto object-contain"
+				/>
+			</Link>
 
 			{/* Right Side: Stacked Text */}
 			<div className="flex flex-col items-end justify-center text-right grow text-nowrap">
