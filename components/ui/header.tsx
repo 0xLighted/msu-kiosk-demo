@@ -5,8 +5,16 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 export default function Header() {
+	const pages: Record<string, string> = {
+		"/": "Main Menu",
+		"/chat": "Chat Bot",
+		"/services": "Services",
+		"/map": "Map",
+		"/faq": "FAQs"
+	}
+
 	const pathname = usePathname();
-	const currentPage = pathname.slice(1) || "Main Menu";
+	const currentPage = pages[pathname] || "Error";
 
 	return (
 		<header className="flex w-full h-fit items-center justify-between relative">

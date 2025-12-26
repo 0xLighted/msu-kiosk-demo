@@ -24,7 +24,7 @@ export default function Services() {
         <div className="flex flex-col gap-5">
             {Object.entries(services).map(([label, options]) => (
                 <div className="flex w-full flex-col gap-3" key={label}>
-                    <h1 className="text-xl font-semibold">{label}</h1>
+                    <h1 className="text-lg font-semibold">{label}</h1>
                     {Object.entries(options).map(([optionLabel, path]) => (
                         <MenuButton key={optionLabel} label={optionLabel} path={path} />
                     ))}
