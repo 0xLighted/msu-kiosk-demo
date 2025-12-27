@@ -1,6 +1,7 @@
-import MainImage from "@/components/home/camere-box";
+'use client';
+
+import CameraBox from "@/components/home/camera-box";
 import Greeting from "@/components/home/greeting";
-import IdentityConfirmation from "@/components/home/identity-confirmation";
 import MenuButton from "@/components/ui/menu-button";
 
 export default function Home() {
@@ -13,14 +14,13 @@ export default function Home() {
 
 	return (
 		<div className="flex flex-1 flex-col gap-5">
-			<MainImage />
+			<CameraBox />
 			<Greeting />
 			<div className="flex flex-1 w-full flex-col gap-3">
 				{Object.entries(options).map(([label, path]) => (
 					<MenuButton key={path} label={label} path={path} />
 				))}
 			</div>
-			<IdentityConfirmation />
 		</div>
 	);
 }

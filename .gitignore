@@ -23,15 +23,18 @@
 # misc
 .DS_Store
 *.pem
+known_faces/
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+test_*
 
 # env files (can opt-in for committing if needed)
 .env*
+.venv
 
 # vercel
 .vercel
@@ -39,3 +42,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# python
+__pycache__/

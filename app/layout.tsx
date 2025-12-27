@@ -4,6 +4,7 @@ import "./globals.css";
 
 import Header from "@/components/ui/header";
 import { ResponsiveWrapper } from "@/components/layout/responsive-wrapper";
+import { UserProvider } from "@/context/user-context";
 
 const lexend = Lexend({
   subsets: ["latin"],
@@ -22,10 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${lexend.className} antialiased`}>
-        <ResponsiveWrapper className="p-5 gap-5 bg-light text-dark">
-          <Header />
-          {children}
-        </ResponsiveWrapper>
+        <UserProvider>
+          <ResponsiveWrapper className="p-5 gap-5 bg-light text-dark">
+            <Header />
+            {children}
+          </ResponsiveWrapper>
+        </UserProvider>
       </body>
     </html>
   );
