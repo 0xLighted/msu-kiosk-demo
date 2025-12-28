@@ -1,5 +1,8 @@
 "use client";
 
+import "regenerator-runtime/runtime";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { useEffect, useState } from "react";
 import { Mic, Send, Keyboard } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -13,8 +16,33 @@ interface ChatInputProps {
 }
 
 export default function ChatInput({ value, onChange, onSend, disabled, isKeyboardVisible, toggleKeyboard }: ChatInputProps) {
-	const handleKeyDown = (e: React.KeyboardEvent) => {
+	const {
+		transcript,
+		listening,
+		resetTranscript,
+		browserSupportsSpeechRecognition
+	} = useSpeechRecognition();
 
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+		if (transcript) {
+			onChange(transcript);
+		}
+	}, [transcript, onChange]);
+
+	const handleMicClick = () => {
+		if (listening) {
+			SpeechRecognition.stopListening();
+		} else {
+			resetTranscript();
+			onChange("");
+			SpeechRecognition.startListening({ continuous: true });
+		}
+	};
+
+	const handleKeyDown = (e: React.KeyboardEvent) => {
 		if (e.key === "Enter" && !disabled && value.trim()) {
 			onSend();
 		}
@@ -26,10 +54,15 @@ export default function ChatInput({ value, onChange, onSend, disabled, isKeyboar
 				{/* Action Buttons */}
 				<div className="flex bg-crimson rounded-md shrink-0">
 					<button
-						className="flex aspect-square p-3 items-center justify-center text-white cursor-pointer active:inset-shadow-sm/25 rounded-l-md transition-transform outline-none"
-						disabled={disabled}
+						className={cn(
+							"flex aspect-square p-3 items-center justify-center text-white cursor-pointer active:inset-shadow-sm/25 rounded-l-md transition-all outline-none",
+							listening ? "bg-red-600 animate-pulse" : ""
+						)}
+						disabled={disabled || !mounted || !browserSupportsSpeechRecognition}
+						onClick={handleMicClick}
+						title={listening ? "Stop Listening" : "Start Voice Input"}
 					>
-						<Mic size={16} />
+						<Mic size={16} className={listening ? "animate-bounce" : ""} />
 					</button>
 					<button
 						className={cn(
@@ -38,6 +71,7 @@ export default function ChatInput({ value, onChange, onSend, disabled, isKeyboar
 						)}
 						disabled={disabled}
 						onClick={toggleKeyboard}
+						title="Toggle Virtual Keyboard"
 					>
 						<Keyboard size={16} />
 					</button>
@@ -50,7 +84,7 @@ export default function ChatInput({ value, onChange, onSend, disabled, isKeyboar
 					id="chat-input"
 					onChange={(e) => onChange(e.target.value)}
 					onKeyDown={handleKeyDown}
-					placeholder={disabled ? "AI is thinking..." : "Ask me anything about MSU..."}
+					placeholder={listening ? "Listening..." : (disabled ? "AI is thinking..." : "Ask me anything about MSU...")}
 					className="w-full bg-transparent text-dark outline-none placeholder:text-dark/40 h-full"
 					disabled={disabled}
 				/>
