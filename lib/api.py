@@ -1,21 +1,25 @@
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+from typing import List, Optional
+
 import os
 import shutil
 import tempfile
-from face_manager import FaceManager
-from typing import List, Optional
-from pydantic import BaseModel
 import sys
+
+from ai.groq_client import GroqChatManager
+from vision.face_manager import FaceManager
 
 # Ensure lib directory is in path for imports
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if project_root not in sys.path:
     sys.path.append(project_root)
 
-from ai.groq_client import ai_manager
 
 app = FastAPI(title="MSU Kiosk Vision API")
+
+ai_manager = GroqChatManager()
 
 class ChatRequest(BaseModel):
     user_id: str

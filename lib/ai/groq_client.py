@@ -140,6 +140,3 @@ class GroqChatManager:
         if user_id in self.chat_history:
             del self.chat_history[user_id]
             print(f"Session cleared for user: {user_id}")
-
-# Global instance
-ai_manager = GroqChatManager()

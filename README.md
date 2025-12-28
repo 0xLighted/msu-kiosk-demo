@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MSU Smart Kiosk Demo
 
-## Getting Started
+A next-generation interactive kiosk application designed for **Management and Science University (MSU)**. This project integrates cutting-edge facial recognition and Generative AI to provide a personalized, agentic experience for students, staff, and visitors
 
-First, run the development server:
+## 🚀 Key Features
 
+*   **👤 Facial Recognition**: Automatically detects and identifies registered users (students/staff) via webcam using `face_recognition` and OpenCV logic.
+*   **🤖 Agentic AI Assistant**: A smart chatbot powered by **Groq (Llama 3.3)** that acts as a campus concierge. It uses **RAG (Retrieval-Augmented Generation)** to answer specific questions about MSU facilities, hours, and policies.
+*   **🧠 Context-Aware Interactions**: The AI knows who you are (e.g., "Hello Faisal") and adjusts its responses accordingly.
+*   **📚 Dynamic Knowledge Base**: Centralized FAQ and campus information (`campus_info.json`) that powers both the Chatbot and the FAQ page.
+*   **🎨 Modern UI/UX**: Built with **Next.js 14**, **TailwindCSS**, and **Framer Motion** for smooth, touch-friendly animations suitable for kiosk displays.
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: TailwindCSS
+- **Animations**: Framer Motion
+- **State Management**: React Context (`UserContext`)
+
+### Backend (Python)
+- **Framework**: FastAPI
+- **AI Engine**: Groq API (Llama-3.3-70b-versatile)
+- **Computer Vision**: `face_recognition`, `dlib`, `numpy`, `Pillow`
+- **Data Source**: Local JSON storage for face encodings and campus info.
+
+---
+
+## 📦 Getting Started
+
+### Prerequisites
+- **Node.js**: v18 or higher
+- **Python**: v3.10 or higher
+- **C++ Build Tools**: Required for compiling `dlib` (e.g., Visual Studio Build Tools on Windows, Xcode on macOS).
+
+### 1. Installation
+
+**Clone the repository:**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/msu-kiosk-demo.git
+cd msu-kiosk-demo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Frontend Dependencies:**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Backend Dependencies:**
+```bash
+# Create a virtual environment (optional but recommended)
+python -m venv .venv
+# Activate: .venv\Scripts\activate (Windows) or source .venv/bin/activate (Mac/Linux)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Install Python packages
+pip install -r requirements.txt
+```
 
-## Learn More
+### 2. Configuration (`.env.local`)
 
-To learn more about Next.js, take a look at the following resources:
+Create a `.env.local` file in the root directory and add the following keys:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+# Backend URL (for Frontend)
+NEXT_PUBLIC_VISION_API_URL=http://127.0.0.1:8000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Groq API Key (for AI Chatbot)
+GROQ_API_KEY=your_groq_api_key_here
+```
 
-## Deploy on Vercel
+### 3. Running the Project
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+You need to run **both** the frontend and backend terminals simultaneously.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Terminal 1: Python Backend**
+```bash
+python lib/vision/api.py
+```
+*Server will start at `http://127.0.0.1:8000`*
+
+**Terminal 2: Next.js Frontend**
+```bash
+npm run dev
+```
+*App will be live at `http://localhost:3000`*
