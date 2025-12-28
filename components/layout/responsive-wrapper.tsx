@@ -45,7 +45,7 @@ export function ResponsiveWrapper({ children, className }: ResponsiveWrapperProp
 			<div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] opacity-20 md:opacity-100"></div>
 
 			{/* Main Content Area */}
-			<div className="relative z-10 flex items-center justify-center gap-12 xl:gap-24">
+			<div className="relative z-10 flex w-full h-full md:w-auto md:h-auto items-center justify-center gap-12 xl:gap-24">
 				{/* Kiosk Container (9:16) */}
 				<div
 					className={cn(
