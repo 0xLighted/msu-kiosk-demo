@@ -4,9 +4,43 @@ import os
 import shutil
 import tempfile
 from face_manager import FaceManager
-from typing import List
+from typing import List, Optional
+from pydantic import BaseModel
+import sys
+
+# Ensure lib directory is in path for imports
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
+from ai.groq_client import ai_manager
 
 app = FastAPI(title="MSU Kiosk Vision API")
+
+class ChatRequest(BaseModel):
+    user_id: str
+    user_name: Optional[str] = "Student"
+    message: str
+
+@app.post("/chat")
+async def chat_endpoint(request: ChatRequest):
+    """
+    Handle chatbot interactions using Groq AI.
+    """
+    response = ai_manager.get_chat_response(
+        request.user_id, 
+        request.message, 
+        request.user_name
+    )
+    return {"response": response}
+
+@app.delete("/chat/{user_id}")
+async def clear_chat_endpoint(user_id: str):
+    """
+    Clear the chat history for a specific user.
+    """
+    ai_manager.clear_session(user_id)
+    return {"status": "success", "message": f"Session for {user_id} has been cleared."}
 
 # Add CORS middleware for Next.js frontend
 app.add_middleware(
