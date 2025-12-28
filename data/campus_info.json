@@ -1,0 +1,67 @@
+[
+    {
+        "category": "Library",
+        "question": "How do I rent a book?",
+        "answer": "To rent a book, you can bring the book to the service counter at the Main Library (Level 5) or use the any kiosks around the campus. You must have your student ID cards ready."
+    },
+    {
+        "category": "Services",
+        "question": "What are the University operating hours?",
+        "answer": "The University is open from Monday to Friday, 8:00 AM to 6:00 PM. It is closed on weekends and public holidays."
+    },
+    {
+        "category": "Facilities",
+        "question": "Where is the prayer room (Musolla)?",
+        "answer": "The prayer room is located on level 2 next to the Performing Arts and Theatre (PAT)."
+    },
+    {
+        "category": "Finance",
+        "question": "How can I pay my tuition fees?",
+        "answer": "Tuition fees can be paid via the the online portal, bank in/deposit payable to MANAGEMENT AND SCIENCE UNIVERSITY SDN. BHD., or at the Finance Counter on Level 3. For more information, visit https://www.msu.edu.my/method-of-payment"
+    },
+    {
+        "category": "Campus Info",
+        "question": "What are the operating hours of MSU campus?",
+        "answer": "MSU campus is generally open from 8:00 am to 6:00 pm on weekdays. Operating hours may vary for specific facilities such as the library and laboratories."
+    },
+    {
+        "category": "Administration",
+        "question": "Where is the main administrative office located?",
+        "answer": "The main administrative office is located at the MSU Shah Alam main building, Level 3 above Affin Bank. Visitors may refer to the campus directory or virtual map for exact directions."
+    },
+    {
+        "category": "Support",
+        "question": "How can I contact MSU for general enquiries?",
+        "answer": "General enquiries can be made via the MSU official website, email, or by contacting +(603) 5521 6868 during working hours."
+    },
+    {
+        "category": "Academic",
+        "question": "How can I check my class timetable?",
+        "answer": "Timetables can be viewed through the student portal (eKlas) under the \"campus\" section after logging in."
+    },
+    {
+        "category": "Library",
+        "question": "What are the operating hours of the MSU library?",
+        "answer": "The MSU library typically operates from 8:00 am - 10:00 pm on weekdays, 9:00 am - 6:00 pm on weekends. More information can be found at https://www.msu.edu.my/library-resource-centre/opening-hours.php"
+    },
+    {
+        "category": "Library",
+        "question": "Can I access library resources online?",
+        "answer": "Yes, students can access e-books, journals, and academic databases through the MSU library portal using their student credentials."
+    },
+    {
+        "category": "Finance",
+        "question": "What payment methods are accepted for tuition fees?",
+        "answer": "Tuition fees can be paid via the online portal, bank in/deposit payable to MANAGEMENT AND SCIENCE UNIVERSITY SDN. BHD., or at the Finance Counter on Level 3. For more information, visit https://www.msu.edu.my/method-of-payment"
+    },
+    {
+        "category": "Facilities",
+        "question": "Is parking available on campus?",
+        "answer": "Yes, parking is available for students and staff. More information can be found at https://www.msu.edu.my/msu-parking-area.php"
+    },
+    {
+        "category": "Support",
+        "question": "Where can I get help if I lose my student ID card?",
+        "answer": "Lost student ID cards should be reported to Admin office, where a replacement can be requested."
+    }
+]

@@ -86,7 +86,8 @@ export default function CameraBox() {
 			const formData = new FormData();
 			formData.append('file', blob, 'ident.jpg');
 
-			const res = await fetch('http://127.0.0.1:8000/identify', {
+			const API_BASE = process.env.NEXT_PUBLIC_VISION_API_URL || "";
+			const res = await fetch(`${API_BASE}/identify`, {
 				method: 'POST',
 				body: formData,
 			});
